@@ -32,7 +32,7 @@ class Network {
             do {
                 let pages = try JSONDecoder().decode(CountPages.self, from: data)
                 countPages = pages.info.pages
-                //print(countPages)
+
                 DispatchQueue.main.async {
                     complition()
                 }
@@ -57,19 +57,17 @@ class Network {
                     Network.allNames.results = name.results
                     
                     for i in 0..<20 {
-                        
                         fullNames.append(Network.allNames.results[i].name)
-                        print(fullNames)
                     }
+                    DispatchQueue.main.async {
+                        complition()
+                    }
+                    
                 }catch let error {
                     print(error.localizedDescription)
                 }
             }.resume()
         }
-        
-    }
-    
-    class func parsNeamesHero (complition: @escaping ()->()) {
         let urlString = "https://rickandmortyapi.com/api/character/?page=25"
         guard let url = URL(string: urlString) else { return }
         
@@ -83,7 +81,10 @@ class Network {
                 
                 for i in 0..<13 {
                     fullNames.append(Network.lastName.results[i].name)
-                    print(fullNames)
+                }
+                
+                DispatchQueue.main.async {
+                    complition()
                 }
                 
             }catch let error {
@@ -91,5 +92,6 @@ class Network {
             }
         }.resume()
     }
+    
 }
 

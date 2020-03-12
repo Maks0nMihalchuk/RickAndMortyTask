@@ -12,23 +12,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Network.parsCountPages() {
-            DispatchQueue.main.async {
-                
-            }
-        }
-        Network.parsNamesHeroes() {
-            DispatchQueue.main.async {
-                
-            }
-        }
-        Network.parsNeamesHero() {
-            DispatchQueue.main.async {
-                
-            }
-        }
+        
     }
     
+    @IBAction func buttonStart(_ sender: Any) {
+        
+    }
     
 }
 
