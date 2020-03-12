@@ -12,9 +12,23 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        Network.parsCountPages() {
+            DispatchQueue.main.async {
+                
+            }
+        }
+        Network.parsNamesHeroes() {
+            DispatchQueue.main.async {
+                
+            }
+        }
+        Network.parsNeamesHero() {
+            DispatchQueue.main.async {
+                
+            }
+        }
     }
-
-
+    
+    
 }
 
