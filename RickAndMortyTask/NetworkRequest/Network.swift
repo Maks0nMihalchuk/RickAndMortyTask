@@ -10,18 +10,26 @@ import Foundation
 
 class Network {
     
-    static var countPages = Int()
-    static var allNames = AllNameHerous(results: [])
-    static var lastName = AllNameHerous(results: [])
-    static var fullNames = [String]()
+    static var countFull = Int()
+    
+    static var nameFull = [String]()
+    static var statusFull = [String]()
+    static var speciesFull = [String]()
+    static var typeFull = [String]()
+    static var genderFull = [String]()
+    static var imgFull = [String]()
+    
+    static var infoDict = [[String: [String]]]()
 
+    static var objectArray = [Object]()
+    
     func request(complition: (()->Void)) {
         complition()
     }
     
 //MARK: - Parsing the number of pages
     class func parsCountPages(complition: @escaping ()->())  {
-        let urlString = "https://rickandmortyapi.com/api/character/?page=1"
+        let urlString = "https://rickandmortyapi.com/api/character"
         guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -30,8 +38,8 @@ class Network {
             guard error == nil else { return }
         
             do {
-                let pages = try JSONDecoder().decode(CountPages.self, from: data)
-                countPages = pages.info.pages
+                let count = try JSONDecoder().decode(AllCount.self, from: data)
+                countFull = count.info.count
 
                 DispatchQueue.main.async {
                     complition()
@@ -41,57 +49,28 @@ class Network {
             }
         }.resume()
     }
-//MARK: - We get the names of the heroes through the request
-    class func parsNamesHeroes(complition: @escaping ()->()) {
+//MARK: - Parsing info Heroes
+    class func infoHeroes (complition: @escaping ()->()) {
         
-        for page in 1...24 {
-            let urlString = "https://rickandmortyapi.com/api/character/?page=\(page)"
-            guard let url = URL(string: urlString) else { return }
+        for id in 1...493 {
+            let urlString = "https://rickandmortyapi.com/api/character/\(id)"
             
-            URLSession.shared.dataTask(with: url) {(data, response, error) in
+            guard let url = URL(string: urlString) else { return }
+        
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
                 guard let data = data else { return }
                 guard error == nil else { return }
                 
                 do {
-                    let name = try JSONDecoder().decode(AllNameHerous.self, from: data)
-                    Network.allNames.results = name.results
+                    let info = try JSONDecoder().decode(Heroes.self, from: data)
                     
-                    for i in 0..<20 {
-                        fullNames.append(Network.allNames.results[i].name)
-                    }
-                    DispatchQueue.main.async {
-                        complition()
-                    }
+                    infoDict.append([info.name : [info.status,info.species, info.gender, info.image]])
+                    print(infoDict)
                     
                 }catch let error {
                     print(error.localizedDescription)
                 }
             }.resume()
         }
-        let urlString = "https://rickandmortyapi.com/api/character/?page=25"
-        guard let url = URL(string: urlString) else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in ()
-            guard let data = data else { return }
-            guard error == nil else { return }
-            
-            do {
-                let lastName = try JSONDecoder().decode(AllNameHerous.self, from: data)
-                Network.lastName = lastName
-                
-                for i in 0..<13 {
-                    fullNames.append(Network.lastName.results[i].name)
-                }
-                
-                DispatchQueue.main.async {
-                    complition()
-                }
-                
-            }catch let error {
-                print(error)
-            }
-        }.resume()
     }
-    
 }
-

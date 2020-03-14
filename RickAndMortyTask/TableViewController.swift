@@ -16,26 +16,31 @@ class TableViewController: UITableViewController {
         
         Network.parsCountPages() {
             DispatchQueue.main.async {
-                
+                self.tableView.reloadData()
             }
         }
-        Network.parsNamesHeroes() {
+        
+        Network.infoHeroes {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
+        
     }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return Network.fullNames.count
+        
+        return Network.infoDict.count
+        //return Network.nameFull.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellNames = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        let arrayNames = Network.fullNames[indexPath.row]
-        cellNames.textLabel?.text = arrayNames
+//        let arrayNames = Network.nameFull[indexPath.row]
+//        cellNames.textLabel?.text = arrayNames
+        let arrayNames = Network.infoDict
         
         return cellNames
     }

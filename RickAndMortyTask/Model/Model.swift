@@ -8,16 +8,29 @@
 
 import Foundation
 
-struct CountPages: Codable {
-    var info: Pages
+//MARK: - count pages
+struct AllCount: Codable {
+    var info: Count
 }
-struct Pages: Codable {
-    var pages: Int
+struct Count: Codable {
+    var count: Int
 }
 
-struct AllNameHerous: Codable {
-    var results: [NameHeroes]
-}
-struct NameHeroes: Codable {
+//MARK: - We get information about character
+
+struct Heroes: Codable {
+    
     var name: String
+    var status: String
+    var species: String
+    var type: String
+    var gender: String
+    var image: String
+    
 }
+
+struct Object {
+    var nameObject: String
+    var infoObject: [String]
+}
+
