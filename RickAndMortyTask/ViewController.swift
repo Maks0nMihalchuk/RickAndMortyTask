@@ -12,12 +12,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
-    
     @IBAction func buttonStart(_ sender: Any) {
-        
     }
-    
 }
 

@@ -13,40 +13,31 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        Network.parsCountPages() {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-        
         Network.infoHeroes {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
-        
     }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        
-        return Network.infoDict.count
-        //return Network.nameFull.count
+        return Network.heroes.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellNames = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-//        let arrayNames = Network.nameFull[indexPath.row]
-//        cellNames.textLabel?.text = arrayNames
-        let arrayNames = Network.infoDict
+        cellNames.textLabel?.text = Network.heroes[indexPath.row].name
         
         return cellNames
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = InfoHeroTableViewController()
+        vc.hero = Network.heroes[indexPath.row]
+        self.present(vc, animated: false, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
-    
 }

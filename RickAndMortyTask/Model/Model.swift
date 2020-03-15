@@ -8,17 +8,10 @@
 
 import Foundation
 
-//MARK: - count pages
-struct AllCount: Codable {
-    var info: Count
-}
-struct Count: Codable {
-    var count: Int
-}
-
 //MARK: - We get information about character
 
-struct Heroes: Codable {
+typealias Heroes = [Hero]
+struct Hero: Codable {
     
     var name: String
     var status: String
@@ -26,11 +19,10 @@ struct Heroes: Codable {
     var type: String
     var gender: String
     var image: String
-    
+    var origin: Location
+    var location: Location
 }
 
-struct Object {
-    var nameObject: String
-    var infoObject: [String]
+struct Location: Codable {
+    var name: String
 }
-

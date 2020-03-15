@@ -17,6 +17,11 @@
 		2DB4B2D2241969420017C565 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB4B2D1241969420017C565 /* Network.swift */; };
 		2DB4B2D4241A8D080017C565 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB4B2D3241A8D080017C565 /* TableViewController.swift */; };
 		2DB4B2D6241A8DA20017C565 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB4B2D5241A8DA20017C565 /* TableViewCell.swift */; };
+		2DB4B79E241E584700C14960 /* InfoHeroTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB4B79D241E584700C14960 /* InfoHeroTableViewController.swift */; };
+		2DB4B7A2241EA0EE00C14960 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB4B7A0241EA0EE00C14960 /* InfoTableViewCell.swift */; };
+		2DB4B7A3241EA0EE00C14960 /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DB4B7A1241EA0EE00C14960 /* InfoTableViewCell.xib */; };
+		2DB4B7B2241EC58E00C14960 /* ImgInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB4B7B0241EC58E00C14960 /* ImgInfoTableViewCell.swift */; };
+		2DB4B7B3241EC58E00C14960 /* ImgInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DB4B7B1241EC58E00C14960 /* ImgInfoTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		2DB4B2D1241969420017C565 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		2DB4B2D3241A8D080017C565 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		2DB4B2D5241A8DA20017C565 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		2DB4B79D241E584700C14960 /* InfoHeroTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoHeroTableViewController.swift; sourceTree = "<group>"; };
+		2DB4B7A0241EA0EE00C14960 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
+		2DB4B7A1241EA0EE00C14960 /* InfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
+		2DB4B7B0241EC58E00C14960 /* ImgInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImgInfoTableViewCell.swift; sourceTree = "<group>"; };
+		2DB4B7B1241EC58E00C14960 /* ImgInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImgInfoTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +77,11 @@
 				2DB4B2B924194E090017C565 /* AppDelegate.swift */,
 				2DB4B2BB24194E090017C565 /* SceneDelegate.swift */,
 				2DB4B2BD24194E090017C565 /* ViewController.swift */,
+				2DB4B79D241E584700C14960 /* InfoHeroTableViewController.swift */,
 				2DB4B2D3241A8D080017C565 /* TableViewController.swift */,
 				2DB4B2D5241A8DA20017C565 /* TableViewCell.swift */,
+				2DB4B7AF241EC4F900C14960 /* ImgInfoTableViewCell */,
+				2DB4B79F241EA0A800C14960 /* InfoTableViewCell */,
 				2DB4B2CD241968D90017C565 /* Model */,
 				2DB4B2CE241968F60017C565 /* NetworkRequest */,
 				2DB4B2BF24194E090017C565 /* Main.storyboard */,
@@ -93,6 +106,24 @@
 				2DB4B2D1241969420017C565 /* Network.swift */,
 			);
 			path = NetworkRequest;
+			sourceTree = "<group>";
+		};
+		2DB4B79F241EA0A800C14960 /* InfoTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2DB4B7A0241EA0EE00C14960 /* InfoTableViewCell.swift */,
+				2DB4B7A1241EA0EE00C14960 /* InfoTableViewCell.xib */,
+			);
+			path = InfoTableViewCell;
+			sourceTree = "<group>";
+		};
+		2DB4B7AF241EC4F900C14960 /* ImgInfoTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2DB4B7B0241EC58E00C14960 /* ImgInfoTableViewCell.swift */,
+				2DB4B7B1241EC58E00C14960 /* ImgInfoTableViewCell.xib */,
+			);
+			path = ImgInfoTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,7 +185,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DB4B2C624194E0E0017C565 /* LaunchScreen.storyboard in Resources */,
+				2DB4B7A3241EA0EE00C14960 /* InfoTableViewCell.xib in Resources */,
 				2DB4B2C324194E0E0017C565 /* Assets.xcassets in Resources */,
+				2DB4B7B3241EC58E00C14960 /* ImgInfoTableViewCell.xib in Resources */,
 				2DB4B2C124194E090017C565 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,10 +202,13 @@
 				2DB4B2D2241969420017C565 /* Network.swift in Sources */,
 				2DB4B2D4241A8D080017C565 /* TableViewController.swift in Sources */,
 				2DB4B2BE24194E090017C565 /* ViewController.swift in Sources */,
+				2DB4B7A2241EA0EE00C14960 /* InfoTableViewCell.swift in Sources */,
 				2DB4B2BA24194E090017C565 /* AppDelegate.swift in Sources */,
 				2DB4B2BC24194E090017C565 /* SceneDelegate.swift in Sources */,
 				2DB4B2D6241A8DA20017C565 /* TableViewCell.swift in Sources */,
 				2DB4B2D0241969140017C565 /* Model.swift in Sources */,
+				2DB4B79E241E584700C14960 /* InfoHeroTableViewController.swift in Sources */,
+				2DB4B7B2241EC58E00C14960 /* ImgInfoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
