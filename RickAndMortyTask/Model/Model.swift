@@ -11,6 +11,15 @@ import Foundation
 //MARK: - We get information about character
 
 typealias Heroes = [Hero]
+
+struct Info: Codable {
+    var info : CountHeroes
+}
+
+struct CountHeroes: Codable {
+    var count: Int
+}
+
 struct Hero: Codable {
     
     var name: String

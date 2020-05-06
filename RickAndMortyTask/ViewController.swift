@@ -12,6 +12,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Network.countHeroes()
     }
     @IBAction func buttonStart(_ sender: Any) {
     }
